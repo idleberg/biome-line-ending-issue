@@ -21,6 +21,8 @@ Second run
 1. Running `biome check --use-editorconfig=true` expects CRLF on Windows
 2. Running `biome check --use-editorconfig=true` expects LF on other operating systems
 
+[**See GitHub Action for results**](https://github.com/idleberg/biome-line-ending-issue/actions/workflows/check.yml)
+
 ### What I'm expecting
 
 1. Specifying neither `lineEnding` nor `end_of_line = lf` should default to CRLF on Windows
