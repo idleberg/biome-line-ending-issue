@@ -1,9 +1,0 @@
-{
-	"files": {
-		"includes": ["*.json", "*.ts"]
-	},
-	"formatter": {
-		"lineEnding": "lf",
-		"useEditorconfig": false
-	}
-}

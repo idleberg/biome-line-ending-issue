@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  default:
+  check:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -18,11 +18,27 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v5
 
-      - name: Lint with .editorconfig
-        run: npx @biomejs/biome ci --config-path biome.editorconfig.json
+      - name: Lint with LF & .editorconfig
         continue-on-error: true
+        run: |
+          npx @biomejs/biome ci --line-ending=lf --use-editorconfig=true
+
+      - name: Lint with LF & no .editorconfig
+        continue-on-error: true
+        run: |
+          npx @biomejs/biome ci --line-ending=lf --use-editorconfig=false
+
+      - name: Lint with LF
+        continue-on-error: true
+        run: |
+          npx @biomejs/biome ci --line-ending=lf
+
+      - name: Lint with .editorconfig
+        continue-on-error: true
+        run: |
+          npx @biomejs/biome ci --use-editorconfig=true
 
       - name: Lint without .editorconfig
+        continue-on-error: true
         run: |
-          rm .editorconfig
-          npx @biomejs/biome ci --config-path biome.no-editorconfig.json
+          npx @biomejs/biome ci --use-editorconfig=false
