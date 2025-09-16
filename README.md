@@ -1,15 +1,13 @@
-# Biome Issue
-
 ## Description
 
 I have noticed the following behaviour when running Biome on different operating systems:
 
-- the default `lineEnding` on Windows is CRLF
-- the default `lineEnding` on other operating systems is LF
+- The default `lineEnding` on Windows is CRLF
+- The default `lineEnding` on other operating systems is LF
 
-This in itself is a sensible default. However, I was expecting that this can be overridden
-using a config file. Likewise, I was expecting the setting specified in `.editorconfig` to
-be respected, i.e. `end_of_line = lf`.
+This in itself is a sensible default. However, I was expecting that this could be overridden
+by the user. Likewise, I was expecting the setting specified in `.editorconfig` to
+take precedence, i.e. `end_of_line = lf`.
 
 ### What I'm seeing
 
@@ -25,6 +23,6 @@ Second run
 
 ### What I'm expecting
 
-1. Specifying neither, `lineEnding` or `end_of_line = lf`, should default to CRLF on Windows
-2. Specifying neither, `lineEnding` or `end_of_line = lf`, should default to LF on other operating systems
-3. Specifying either, `lineEnding` or `end_of_line = lf`, should follow that setting
+1. Specifying neither `lineEnding` nor `end_of_line = lf` should default to CRLF on Windows
+2. Specifying neither `lineEnding` nor `end_of_line = lf` should default to LF on other operating systems
+3. Specifying either `lineEnding` or `end_of_line = lf` should follow that setting
